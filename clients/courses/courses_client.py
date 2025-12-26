@@ -2,6 +2,9 @@ from clients.api_client import APIClient
 from httpx import Response
 from typing import TypedDict
 
+from clients.private_http_builder import AuthenticationUserDict, get_private_http_client
+
+
 class CreateCourseRequestDict(TypedDict):
     """Create Course structure"""
     title: str
@@ -68,4 +71,12 @@ class CoursesClient(APIClient):
         :return: Server's answer httpx.Response
         """
         return self.delete(f"/api/v1/courses/{course_id}")
+
+def get_courses_client(user: AuthenticationUserDict) -> CoursesClient:
+    """
+    The function creates CoursesClient with all necessary preparations
+
+    :return: ready to be used CoursesClient
+    """
+    return CoursesClient(client=get_private_http_client(user))
 
