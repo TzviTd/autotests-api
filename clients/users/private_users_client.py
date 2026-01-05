@@ -1,16 +1,9 @@
 from clients.api_client import APIClient
 from httpx import Response
 from typing import TypedDict
+from clients.private_http_builder import AuthenticationUserSchema, get_private_http_client
+from clients.users.user_schema import UpdateUserRequestSchema, UpdateUserResponseSchema
 
-from clients.private_http_builder import AuthenticationUserDict, get_private_http_client
-
-
-class UpdateUserRequestDict(TypedDict):
-    """Update (patch) user Typedict structure"""
-    email: str | None
-    lastName: str | None
-    firstName: str | None
-    middleName: str | None
 
 class PrivateUsersClient(APIClient):
     """Client for private methods for /api/v1/users/ endpoint"""
@@ -29,14 +22,14 @@ class PrivateUsersClient(APIClient):
         """
         return self.get(f"/api/v1/users/{user_id}")
 
-    def update_user_api(self, user_id: str, request: UpdateUserRequestDict) -> Response:
+    def update_user_api(self, user_id: str, request: UpdateUserRequestSchema) -> Response:
         """
         Updating user method
         :param user_id: introduce id (string)
         :param request: Typedict dictionary UpdateUserRequestDict
         :return: Server's answer httpx.Response
         """
-        return self.patch(f"/api/v1/users/{user_id}", json=request)
+        return self.patch(f"/api/v1/users/{user_id}", json=request.model_dump(by_alias=True))
 
     def delete_user_api(self, user_id: str) -> Response:
         """
@@ -46,7 +39,11 @@ class PrivateUsersClient(APIClient):
         """
         return self.delete(f"/api/v1/users/{user_id}")
 
-def get_private_user_client(user: AuthenticationUserDict) -> PrivateUsersClient:
+    def get_user(self, user_id: str) -> UpdateUserResponseSchema:
+        response = self.get_user_api(user_id)
+        return UpdateUserResponseSchema.model_validate_json(response.text)
+
+def get_private_users_client(user: AuthenticationUserSchema) -> PrivateUsersClient:
     """
         The function creates PrivateUsersClient with all necessary preparations
 
