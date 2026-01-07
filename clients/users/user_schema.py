@@ -36,3 +36,7 @@ class UpdateUserRequestSchema(BaseModel):
 class UpdateUserResponseSchema(BaseModel):
     """Create User Response structure"""
     user: UserSchema
+
+class GetUserResponseSchema(BaseModel):
+    """Get User Response structure"""
+    user: UserSchema

@@ -2,7 +2,7 @@ from clients.api_client import APIClient
 from httpx import Response
 from typing import TypedDict
 from clients.private_http_builder import AuthenticationUserSchema, get_private_http_client
-from clients.users.user_schema import UpdateUserRequestSchema, UpdateUserResponseSchema
+from clients.users.user_schema import UpdateUserRequestSchema, UpdateUserResponseSchema, GetUserResponseSchema
 
 
 class PrivateUsersClient(APIClient):
@@ -39,9 +39,9 @@ class PrivateUsersClient(APIClient):
         """
         return self.delete(f"/api/v1/users/{user_id}")
 
-    def get_user(self, user_id: str) -> UpdateUserResponseSchema:
+    def get_user(self, user_id: str) -> GetUserResponseSchema:
         response = self.get_user_api(user_id)
-        return UpdateUserResponseSchema.model_validate_json(response.text)
+        return GetUserResponseSchema.model_validate_json(response.text)
 
 def get_private_users_client(user: AuthenticationUserSchema) -> PrivateUsersClient:
     """
