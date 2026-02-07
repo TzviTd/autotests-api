@@ -23,8 +23,8 @@ class APIClient:
 
     def patch(self, url: URL | str, json: Any | None = None) -> Response:
         """Basic patch method structure"""
-        return self.patch(url, json=json)
+        return self.client.patch(url, json=json)
 
     def delete(self, url: URL | str):
         """Basic delete method structure"""
-        return self.delete(url)
+        return self.client.delete(url)
