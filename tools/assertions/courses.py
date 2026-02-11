@@ -1,0 +1,65 @@
+from clients.courses.courses_schema import UpdateCourseRequestSchema, UpdateCourseResponseSchema, CourseSchema, \
+    GetCoursesResponseSchema, CreateCourseResponseSchema, CreateCourseRequestSchema
+from tools.assertions.base import assert_equal, assert_length
+from tools.assertions.files import assert_file
+from tools.assertions.users import assert_user
+
+
+def assert_update_course_response(request: UpdateCourseRequestSchema, response: UpdateCourseResponseSchema):
+    """
+    The function checks if request and response match
+    :param request: Update request
+    :param response: API Update response
+    :raises AssertionError: if any parameter does not match
+    """
+    assert_equal(response.course.title, request.title, "title")
+    assert_equal(response.course.max_score, request.max_score, "max_score")
+    assert_equal(response.course.min_score, request.min_score, "min_score")
+    assert_equal(response.course.description, request.description, "description")
+    assert_equal(response.course.estimated_time, request.estimated_time, "estimated_time")
+
+def assert_course(actual:CourseSchema, expected: CourseSchema):
+    """
+    The function compares actual course data with expected one
+    :param actual: actual course data
+    :param expected: expected course data
+    :raises AssertionError: if any parameter does not match
+    """
+    assert_equal(actual.id, expected.id, "id")
+    assert_equal(actual.title, expected.title, "title")
+    assert_equal(actual.max_score, expected.max_score, "max_score")
+    assert_equal(actual.min_score, expected.min_score, "min_score")
+    assert_equal(actual.description, expected.description, "description")
+    assert_equal(actual.estimated_time, expected.estimated_time, "estimated_time")
+
+    assert_file(actual.preview_file, expected.preview_file)
+    assert_user(actual.created_by_user, expected.created_by_user)
+
+def assert_get_courses_response(
+        get_courses_response: GetCoursesResponseSchema,
+        create_course_responses: list[CreateCourseResponseSchema]
+):
+    """
+    The function checks if get courses list matches with the corresponding create courses response
+    :param get_courses_response:
+    :param create_course_responses:
+    :raises AssertionError: if any parameter does not match
+    """
+    assert_length(get_courses_response.courses, create_course_responses, "courses")
+    for i, create_course_response in enumerate(create_course_responses):
+        assert_course(get_courses_response.courses[i], create_course_response.course)
+
+def assert_create_course_response(request: CreateCourseRequestSchema, response: CreateCourseResponseSchema):
+    """
+    The function checks if request and response match
+    :param request: actual request
+    :param response: expected response
+    :raises AssertionError: if any parameter does not match
+    """
+    assert_equal(response.course.title, request.title, "title")
+    assert_equal(response.course.max_score, request.max_score, "max_score")
+    assert_equal(response.course.min_score, request.min_score, "min_score")
+    assert_equal(response.course.description, request.description, "description")
+    assert_equal(response.course.estimated_time, request.estimated_time, "estimated_time")
+    assert_equal(response.course.preview_file.id, request.preview_file_id, "preview_file_id")
+    assert_equal(response.course.created_by_user.id, request.created_by_user_id, "created_by_user_id")

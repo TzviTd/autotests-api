@@ -36,14 +36,22 @@ class UpdateCourseRequestSchema(BaseModel):
     """Update Course structure"""
     model_config = ConfigDict(populate_by_name=True)
 
-    title: str | None
+    title: str | None = Field(default_factory=fake.sentence)
     max_score: int | None = Field(alias="maxScore", default_factory=fake.max_score)
     min_score: int | None = Field(alias="minScore", default_factory=fake.min_score)
-    description: str | None = Field(default_factory=fake.text())
+    description: str | None = Field(default_factory=fake.text)
     estimated_time: str | None = Field(alias="estimatedTime", default_factory=fake.estimated_time)
+
+class UpdateCourseResponseSchema(BaseModel):
+    """Update course response structure"""
+    course: CourseSchema
 
 class GetCoursesQuerySchema(BaseModel):
     """Params structure for get_course_api method"""
     model_config = ConfigDict(populate_by_name=True)
 
     user_id: str = Field(alias="userId")
+
+class GetCoursesResponseSchema(BaseModel):
+    """Get courses response structure"""
+    courses: list[CourseSchema]
