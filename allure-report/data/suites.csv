@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2075","test_create_file_with_empty_directory","tests.files","2026-02-20","passed","2026-02-20","TestFiles","test_files","",""
+"","2081","test_get_file_with_incorrect_file_id","tests.files","2026-02-20","passed","2026-02-20","TestFiles","test_files","",""
+"","2134","test_create_file_with_empty_filename","tests.files","2026-02-20","passed","2026-02-20","TestFiles","test_files","",""
+"","21","test_get_file","tests.files","2026-02-20","passed","2026-02-20","TestFiles","test_files","",""
+"","42","test_delete_file","tests.files","2026-02-20","passed","2026-02-20","TestFiles","test_files","",""
+"","4460","test_create_file","tests.files","2026-02-20","passed","2026-02-20","TestFiles","test_files","",""

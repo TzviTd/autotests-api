@@ -2,7 +2,7 @@ from http import HTTPStatus
 import pytest
 from tools.assertions.errors import (assert_create_file_with_empty_filename,
                                      assert_create_file_with_empty_directory,
-                                     assert_internal_error, assert_file_not_found_response,
+                                     assert_internal_error_response, assert_file_not_found_response,
                                      assert_get_file_with_incorrect_file_id_response)
 from clients.error_scheme import ValidationErrorResponseSchema, InternalErrorResponseSchema
 from clients.files.files_client import FilesClient

@@ -66,7 +66,7 @@ def assert_create_file_with_empty_directory(actual: ValidationErrorResponseSchem
     )
     assert_validation_error_response(actual, expected)
 
-def assert_internal_error(actual: InternalErrorResponseSchema, expected: InternalErrorResponseSchema):
+def assert_internal_error_response(actual: InternalErrorResponseSchema, expected: InternalErrorResponseSchema):
     """
     The function verifies the internal error. For instance, 404
     :param actual: Actual error
@@ -82,7 +82,7 @@ def assert_file_not_found_response(actual: InternalErrorResponseSchema):
     :raises AssertionError: if any of parameters does not match
     """
     expected = InternalErrorResponseSchema(details="File not found")
-    assert_internal_error(actual, expected)
+    assert_internal_error_response(actual, expected)
 
 def assert_get_file_with_incorrect_file_id_response(actual: ValidationErrorResponseSchema):
     """
