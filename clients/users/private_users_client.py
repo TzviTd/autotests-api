@@ -1,4 +1,5 @@
 from clients.api_client import APIClient
+import allure
 from httpx import Response
 from typing import TypedDict
 from clients.private_http_builder import AuthenticationUserSchema, get_private_http_client
@@ -7,6 +8,7 @@ from clients.users.user_schema import UpdateUserRequestSchema, UpdateUserRespons
 
 class PrivateUsersClient(APIClient):
     """Client for private methods for /api/v1/users/ endpoint"""
+    @allure.step("Get user me")
     def get_user_me_api(self) -> Response:
         """
         Getting current user method
@@ -14,6 +16,7 @@ class PrivateUsersClient(APIClient):
         """
         return self.get("/api/v1/users/me")
 
+    @allure.step("Get user by id {user_id}")
     def get_user_api(self, user_id: str) -> Response:
         """
         Getting certain user by user_id method
@@ -22,6 +25,7 @@ class PrivateUsersClient(APIClient):
         """
         return self.get(f"/api/v1/users/{user_id}")
 
+    @allure.step("Update user by id {user_id}")
     def update_user_api(self, user_id: str, request: UpdateUserRequestSchema) -> Response:
         """
         Updating user method
@@ -31,6 +35,7 @@ class PrivateUsersClient(APIClient):
         """
         return self.patch(f"/api/v1/users/{user_id}", json=request.model_dump(by_alias=True))
 
+    @allure.step("Delete user by id {user_id}")
     def delete_user_api(self, user_id: str) -> Response:
         """
         Deleting user method

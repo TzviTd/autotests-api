@@ -3,9 +3,11 @@ from clients.public_http_builder import get_public_http_client
 from httpx import Response
 from typing import TypedDict
 from clients.authentication.authentication_schema import LoginRequestSchema, LoginResponseSchema, RefreshRequestSchema
+import allure
 
 class AuthenticationClient(APIClient):
     """Client for api/v1/authentication/ endpoint"""
+    @allure.step("Authenticate user")
     def login_api(self, request: LoginRequestSchema) -> Response:
         """
         Logging in method
@@ -14,6 +16,7 @@ class AuthenticationClient(APIClient):
         """
         return self.post("api/v1/authentication/login", json=request.model_dump(by_alias=True))
 
+    @allure.step("Refresh token")
     def refresh_api(self, request: RefreshRequestSchema):
         """
         Refreshing access token method

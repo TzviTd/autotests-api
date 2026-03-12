@@ -1,6 +1,8 @@
+import allure
 from clients.error_scheme import ValidationErrorSchema, ValidationErrorResponseSchema, InternalErrorResponseSchema
 from tools.assertions.base import assert_length, assert_equal
 
+@allure.step("Check validation error")
 def assert_validation_error(actual: ValidationErrorSchema, expected: ValidationErrorSchema):
     """
     The function checks if actual validation error matches the expected one
@@ -14,6 +16,7 @@ def assert_validation_error(actual: ValidationErrorSchema, expected: ValidationE
     assert_equal(actual.message, expected.message, "message")
     assert_equal(actual.location, expected.location, "location")
 
+@allure.step("Check validation error response")
 def assert_validation_error_response(
         actual: ValidationErrorResponseSchema,
         expected: ValidationErrorResponseSchema
@@ -28,6 +31,7 @@ def assert_validation_error_response(
     for i, detail in enumerate(expected.details):
         assert_validation_error(actual.details[i], detail)
 
+@allure.step("Check create file with empty filename")
 def assert_create_file_with_empty_filename(actual: ValidationErrorResponseSchema):
     """
     The function checks if actual validation error response matches the scheme
@@ -47,6 +51,7 @@ def assert_create_file_with_empty_filename(actual: ValidationErrorResponseSchema
     )
     assert_validation_error_response(actual, expected)
 
+@allure.step("Check create file with empty directory")
 def assert_create_file_with_empty_directory(actual: ValidationErrorResponseSchema):
     """
     The function checks if actual validation error response matches the scheme
@@ -66,6 +71,7 @@ def assert_create_file_with_empty_directory(actual: ValidationErrorResponseSchem
     )
     assert_validation_error_response(actual, expected)
 
+@allure.step("Check internal error response")
 def assert_internal_error_response(actual: InternalErrorResponseSchema, expected: InternalErrorResponseSchema):
     """
     The function verifies the internal error. For instance, 404
@@ -75,6 +81,7 @@ def assert_internal_error_response(actual: InternalErrorResponseSchema, expected
     """
     assert_equal(actual.details, expected.details, "details")
 
+@allure.step("Check file not found response")
 def assert_file_not_found_response(actual: InternalErrorResponseSchema):
     """
     The function for checking the error when the file is not found on server
@@ -84,6 +91,7 @@ def assert_file_not_found_response(actual: InternalErrorResponseSchema):
     expected = InternalErrorResponseSchema(details="File not found")
     assert_internal_error_response(actual, expected)
 
+@allure.step("Check get file with incorrect file id response")
 def assert_get_file_with_incorrect_file_id_response(actual: ValidationErrorResponseSchema):
     """
     The function checks the error response when file id is incorrect

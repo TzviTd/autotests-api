@@ -1,7 +1,9 @@
+import allure
 from clients.files.files_schema import CreateFileRequestSchema, CreateFileResponseSchema, GetFileResponseSchema, FileSchema
 from tools.assertions.base import assert_equal
 import httpx
 
+@allure.step("Check create file")
 def assert_create_file_response(request: CreateFileRequestSchema, response: CreateFileResponseSchema):
     """
     The function checks if created file matches the requested one
@@ -15,6 +17,7 @@ def assert_create_file_response(request: CreateFileRequestSchema, response: Crea
     assert_equal(response.file.filename, request.filename, "filename")
     assert_equal(response.file.directory, request.directory, "directory")
 
+@allure.step("Check file is accessible")
 def assert_file_is_accessible(url: str):
     """
     The function checks if uploaded file actually exists and available to get it
@@ -25,6 +28,7 @@ def assert_file_is_accessible(url: str):
 
     assert response.status_code == 200, f"Unable to get file by url: {url}"
 
+@allure.step("Check file")
 def assert_file(actual: FileSchema, expected: FileSchema):
     """
     The function checks if uploaded file structure matches the expected one
@@ -37,6 +41,7 @@ def assert_file(actual: FileSchema, expected: FileSchema):
     assert_equal(actual.filename, expected.filename, "filename")
     assert_equal(actual.directory, expected.directory, "directory")
 
+@allure.step("Check get file response")
 def assert_get_file_response(
         get_file_response: GetFileResponseSchema,
         create_file_response: CreateFileResponseSchema
