@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAzLTE1VDEwOjQxOjE3LjIzODU3MCIsInVzZXJfaWQiOiJlNDRkNDJiNy1hYTM3LTQwNDQtOWM4Yy1iYjVmNGYyNTBkM2MifQ.KpghZgIGfLZg5ICovTnWKB5mGqYq6kIDq5BqpxbxTPo' \
+  -H 'content-length: 321' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Others attention citizen use affect half use wish.","maxScore":59,"minScore":23,"description":"Happen hand civil appear. Cell short professional security expert increase.","estimatedTime":"10 weeks","previewFileId":"3ec5e854-a30d-4bcc-8a6a-2fb2e9abd433","createdByUserId":"e44d42b7-aa37-4044-9c8c-bb5f4f250d3c"}'

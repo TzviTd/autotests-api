@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAzLTE1VDEwOjQxOjAwLjEzMjc5NCIsInVzZXJfaWQiOiJmNTExMjFjYy0zYWI3LTRkNDItODE1OS00MzQ4OGRkZTNkNGUifQ.cFxbNjSkGLBuwoAlVAZCVU9n8k1qxFL6t5lbr82NCtI' \
+  -H 'content-length: 396' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Voice bring federal hospital chance.","maxScore":87,"minScore":7,"description":"Process federal before them customer nor. Quickly specific organization matter appear. Economy task trip ground power available occur. Say month theory box food care.","estimatedTime":"8 weeks","previewFileId":"f69f250b-7dcf-4df0-b508-5e1d1b05f3a0","createdByUserId":"f51121cc-3ab7-4d42-8159-43488dde3d4e"}'

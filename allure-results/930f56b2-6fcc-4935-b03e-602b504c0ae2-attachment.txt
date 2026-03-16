@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAzLTE1VDEwOjQwOjI2LjM4NTI0NSIsInVzZXJfaWQiOiJmYjg5NTgxOC0yM2ZlLTQyYWUtOTZlMi03OWQ4YzczYjNhYTYifQ.crJLUWzr1Wq8BWxL7YsHwtMghuWDFV05w5fRSi081cg' \
+  -H 'content-length: 326' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Mrs power officer ability.","maxScore":65,"minScore":27,"description":"Stop address despite prevent. Rise say state your establish over. Need reflect major truth deep research.","estimatedTime":"1 weeks","previewFileId":"c15ac94b-ed2c-4dd7-ac89-083caaedc1d8","createdByUserId":"fb895818-23fe-42ae-96e2-79d8c73b3aa6"}'

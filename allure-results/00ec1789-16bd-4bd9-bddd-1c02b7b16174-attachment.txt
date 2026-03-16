@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAzLTE1VDEwOjM5OjQ3LjM3NTMwOSIsInVzZXJfaWQiOiJjNjk3ODIyZC1mNWM4LTQ1ZGQtYWJjYi1iMjkzNDgyMDUxZGQifQ.ICJ27g2waEYzCka9Ivh5TCJqIWOCkGaU2DouCUbk0AE' \
+  -H 'content-length: 393' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Analysis wonder he quite four form.","maxScore":55,"minScore":19,"description":"Thought position parent usually. Long mind wide group whatever white toward night.\nReceive value yourself security cultural. Show resource prevent nature project.","estimatedTime":"9 weeks","previewFileId":"5a8f1114-4a13-472d-b9ea-fe320b1f9def","createdByUserId":"c697822d-f5c8-45dd-abcb-b293482051dd"}'

@@ -1,0 +1,11 @@
+curl -X 'PATCH' \
+  'http://localhost:8000/api/v1/courses/fdb3374a-b04c-4880-8824-c424559148a0' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAzLTE1VDEwOjM5OjQ3LjM3NTMwOSIsInVzZXJfaWQiOiJjNjk3ODIyZC1mNWM4LTQ1ZGQtYWJjYi1iMjkzNDgyMDUxZGQifQ.ICJ27g2waEYzCka9Ivh5TCJqIWOCkGaU2DouCUbk0AE' \
+  -H 'content-length: 255' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Some tonight sort room.","maxScore":64,"minScore":14,"description":"Various present series summer rule mouth quality. Start want toward network similar visit writer. Along common quality free quickly community charge.","estimatedTime":"2 weeks"}'

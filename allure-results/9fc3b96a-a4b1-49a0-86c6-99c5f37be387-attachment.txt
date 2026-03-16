@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAzLTE1VDEwOjQwOjExLjY0MjQ5MCIsInVzZXJfaWQiOiJlMjMzOWFhMS03NDM2LTRkNDAtYTI1Yi1hZTBmM2I1ZTNlZjUifQ.A7hW2psiJwHgz7An99fGx-l3WNEi5ark43_OJYVSa4M' \
+  -H 'content-length: 408' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Marriage drug center owner level wear.","maxScore":97,"minScore":26,"description":"Include check good four enter. Role education seek direction its again. Life character image face market others after. Leg century relationship voice machine me strategy onto.","estimatedTime":"9 weeks","previewFileId":"bfd7f33d-7410-492c-b0e2-e672357068d8","createdByUserId":"e2339aa1-7436-4d40-a25b-ae0f3b5e3ef5"}'

@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/courses' \
+  -H 'host: localhost:8000' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOiIyMDI2LTAzLTE1VDEwOjQwOjQzLjI3MzI5NCIsInVzZXJfaWQiOiIxNTMxZTYwOC0xOTE3LTRmZWYtYmYyZi0zY2YzNjU3YTQyMDcifQ.nFL1Jh3vpqbLPG-ptkKO9yh7qYnoiMU4F8s0H0E5fws' \
+  -H 'content-length: 366' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Environment recently sort hit.","maxScore":84,"minScore":17,"description":"Body model agency feel sister. Great music bit stay teach pretty.\nWithout method north bad positive director the shake. Bag hope kid entire.","estimatedTime":"6 weeks","previewFileId":"90cdfccf-3d4f-49cf-b09b-ee06993a7f4d","createdByUserId":"1531e608-1917-4fef-bf2f-3cf3657a4207"}'
